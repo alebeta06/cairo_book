@@ -8,7 +8,7 @@
 ///
 /// * `true` if the number is prime
 /// * `false` if the number is not prime
-fn is_prime(n: u32) -> bool {
+fn is_prime(n: u128) -> bool {
     if n <= 1 {
         return false;
     }
@@ -35,6 +35,9 @@ fn is_prime(n: u32) -> bool {
 
 // Executable entry point
 #[executable]
-fn main(input: u32) -> bool {
+fn main(input: u128) -> bool {
+    if input > 1000000 { // Arbitrary limit for demo purposes
+        panic!("Input too large, must be <= 1,000,000");
+    }
     is_prime(input)
 }
