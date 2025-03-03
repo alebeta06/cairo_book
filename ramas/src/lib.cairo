@@ -7,4 +7,16 @@ fn main() {
     } else {
         println!("condition was false and number = {}", number);
     }
+
+    let numero = 7;
+
+    if numero == 12 {
+        println!("numero is 12");
+    } else if numero == 7 {
+        println!("numero is 7");
+    } else if numero - 2 == 5 {
+        println!("numero mix 2 is 5");
+    } else {
+        println!("numero not found");
+    }
 }
