@@ -1,24 +1,22 @@
 #[executable]
-fn main() -> u128 {
-    let mut a = ArrayTrait::new();
-    a.append(10);
-    a.append(1);
-    a.append(2);
-
-    let first_value = a.pop_front().unwrap();
-    println!("The first value is {}", first_value);
-
-    //get()
+fn main() {
+    // Crear una matriz de enteros
     let mut arr = ArrayTrait::<u128>::new();
-    arr.append(100);
-    let index_to_access =
-        1; // Change this value to see different results, what would happen if the index doesn't exist?
-    match arr.get(index_to_access) {
-        Option::Some(x) => {
-            *x
-                .unbox() // Don't worry about * for now, if you are curious see Chapter 4.2 #desnap operator
-            // It basically means "transform what get(idx) returned into a real value"
-        },
-        Option::None => { panic!("out of bounds") },
-    }
+    arr.append(10);
+    arr.append(20);
+    arr.append(30);
+
+    // Leer el primer elemento con at()
+    let first = *arr.at(0);
+    println!("El primer elemento es: {}", first);
+
+    // Eliminar el primer elemento
+    let removed = arr.pop_front().unwrap();
+    println!("Elemento removido: {}", removed);
+
+    // Usar la macro array! para crear otra matriz
+    let arr2 = array![100, 200, 300];
+    println!("El segundo elemento de arr2 es: {}", *arr2.at(1));
 }
+//Este ejemplo muestra la creación, lectura, eliminación y uso de la macro para crear matrices
+
