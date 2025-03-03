@@ -21,6 +21,17 @@ fn main() {
         }
         counter += 1;
     };
-
+    //usamos while para repetir el programa tres veces,
+    //contando regresivamente cada vez después de imprimir el valor de number y luego
+    //después del bucle, imprimimos un mensaje y salimos.
     println!("The result is {}", result);
+
+    let mut number = 3;
+
+    while number != 0 {
+        println!("{number}!");
+        number -= 1;
+    };
+
+    println!("LIFTOFF!!!");
 }
