@@ -11,5 +11,16 @@ fn main() {
         }
         println!("i = {}", i);
         i += 1;
-    }
+    };
+    //el valor se devolverá fuera del bucle para que puedas usarlo, lo debolvera 20
+    let mut counter = 0;
+
+    let result = loop {
+        if counter == 10 {
+            break counter * 2;
+        }
+        counter += 1;
+    };
+
+    println!("The result is {}", result);
 }
