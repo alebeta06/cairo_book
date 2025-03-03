@@ -19,4 +19,15 @@ fn main() {
     } else {
         println!("numero not found");
     }
+
+    let condition = true;
+    let otro_num = if condition {
+        9
+    } else {
+        6
+    };
+
+    if otro_num == 9 {
+        println!("condition was true and number is {}", otro_num);
+    }
 }
