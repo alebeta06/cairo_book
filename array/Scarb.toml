@@ -1,0 +1,27 @@
+[package]
+name = "array"
+version = "0.1.0"
+edition = "2024_07"
+
+[dependencies]
+cairo_execute = "2.10.1"
+starknet = "2.10.1"
+
+[lib]  # Esto es si es una biblioteca, de lo contrario, reemplázalo con [executable]
+sierra = true
+casm = true
+
+[executable] 
+
+[dev-dependencies]
+snforge_std = "0.38.0"
+assert_macros = "2.10.1"
+
+[scripts]
+test = "snforge test"
+
+[tool.scarb]
+allow-prebuilt-plugins = ["snforge_std"]
+
+[cairo]
+enable-gas = false
