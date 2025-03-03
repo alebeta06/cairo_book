@@ -34,4 +34,12 @@ fn main() {
     };
 
     println!("LIFTOFF!!!");
+
+    //usamos for para iterar sobre un rango de números
+    //seguridad y concisión de for
+    let a = [10, 20, 30, 40, 50].span();
+
+    for element in a {
+        println!("the value is: {element}");
+    }
 }
