@@ -1,8 +1,7 @@
 [package]
-name = "variables"
+name = "ramas"
 version = "0.1.0"
 edition = "2024_07"
-
 
 [dependencies]
 cairo_execute = "2.10.1"
