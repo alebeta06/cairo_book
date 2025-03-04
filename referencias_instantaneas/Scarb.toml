@@ -7,11 +7,21 @@ edition = "2024_07"
 cairo_execute = "2.10.1"
 starknet = "2.10.1"
 
-[lib]  # Esto es si es una biblioteca, de lo contrario, reemplázalo con [executable]
+[lib]
 sierra = true
 casm = true
 
-[executable] 
+[[target.executable]]
+name = "run_instantanea"
+function = "referencias_instantaneas::instantanea::run_instantanea"
+sierra = true
+casm = true
+
+[[target.executable]]
+name = "run_referencias_mutables"
+function = "referencias_instantaneas::referencias_mutables::run_referencias_mutables"
+sierra = true
+casm = true
 
 [dev-dependencies]
 snforge_std = "0.38.0"

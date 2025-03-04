@@ -1,5 +1,5 @@
 #[executable]
-fn main() {
+pub fn run_instantanea() {
     // Se crea una matriz vacía de tipo Array<u128> usando la macro array!
     let mut arr1: Array<u128> = array![];
 
@@ -30,3 +30,12 @@ fn main() {
 fn calculate_length(arr: @Array<u128>) -> usize {
     arr.len()
 }
+// scarb execute --executable-name run_instantanea
+//Compiling lib(referencias_instantaneas) referencias_instantaneas
+//Compiling executable(run_instantanea) referencias_instantaneas
+//Compiling executable(run_referencias_mutables) referencias_instantaneas
+//Finished `dev` profile target(s) in 36 seconds
+//Executing referencias_instantaneas
+//La longitud de la matriz en el momento de la instantanea es 0
+//La longitud actual de la matriz es 1
+
