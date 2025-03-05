@@ -22,3 +22,9 @@ fn main() {
     };
     user1.email = "anotheremail@example.com";
 }
+
+//Una build_userfunción que utiliza la abreviatura de campo init porque los parámetros usernamey
+//emailtienen el mismo nombre que los campos de estructura.
+fn build_user_short(email: ByteArray, username: ByteArray) -> User {
+    User { active: true, username, email, sign_in_count: 1 }
+}
