@@ -15,7 +15,13 @@ casm = true
 name = "usuario"
 function = "estructuras::struct_practica::usuario"
 sierra = true
-casm = true 
+casm = true
+
+[[target.executable]]
+name = "pregunta1"
+function = "estructuras::struct_pregunta_1::pregunta1"
+sierra = true
+casm = true
 
 [dev-dependencies]
 snforge_std = "0.38.0"
