@@ -4,4 +4,5 @@ use lib::struct_practica::usuario;
 fn main() {
     usuario();
     pregunta1();
+    pregunta2();
 }
