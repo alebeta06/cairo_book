@@ -7,11 +7,15 @@ edition = "2024_07"
 cairo_execute = "2.10.1"
 starknet = "2.10.1"
 
-[lib]  # Esto es si es una biblioteca, de lo contrario, reemplázalo con [executable]
+[lib]
 sierra = true
 casm = true
 
-[executable] 
+[[target.executable]]
+name = "usuario"
+function = "estructuras::struct_practica::usuario"
+sierra = true
+casm = true 
 
 [dev-dependencies]
 snforge_std = "0.38.0"
