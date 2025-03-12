@@ -63,7 +63,7 @@ fn is_prime(n: u128) -> bool {
 ///
 /// Para este ejemplo, se espera que al pasar el número 17, el programa demuestre que 17 es primo.
 #[executable]
-fn main(input: u128) -> bool {
+pub fn n_primo(input: u128) -> bool {
     // Imprime el número de entrada.
     println!("Numero de entrada: {}", input);
 

@@ -1,9 +1,13 @@
 [package]
-name = "prime_prover"
+name = "zkp"
 version = "0.1.0"
 edition = "2024_07"
 
 [[target.executable]]
+name = "n_primo"
+function = "zkps::prime_prover::n_primo"
+sierra = true
+casm = true
 
 [cairo]
 enable-gas = false
