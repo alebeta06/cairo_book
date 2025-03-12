@@ -5,7 +5,13 @@ edition = "2024_07"
 
 [[target.executable]]
 name = "n_primo"
-function = "zkps::prime_prover::n_primo"
+function = "zkp::prime_prover::n_primo"
+sierra = true
+casm = true
+
+[[target.executable]]
+name = "numero_par"
+function = "zkp::par_prover::numero_par"
 sierra = true
 casm = true
 
