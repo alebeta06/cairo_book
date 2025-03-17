@@ -43,3 +43,16 @@ fn main() {
 // Declaración de una constante global. Las constantes se definen con 'const' y siempre son
 // inmutables.
 const ONE_HOUR_IN_SECONDS: u32 = 3600;
+//salida por consola
+
+//(Inmutable) El valor de x es: 5
+//(Mutable) Valor inicial de y: 10
+//(Mutable) Nuevo valor de y: 20
+//(Shadowing) Valor inicial de z: 30
+//(Shadowing) Valor de z despues de sumar 5: 35
+//(Shadowing - bloque interno) Valor de z en el ambito interno: 70
+//(Shadowing) Valor final de z en el ambito externo: 35
+//(Constante) La constante ONE_HOUR_IN_SECONDS es: 3600
+//(Conversion) El valor de a (u64) es: 2
+//(Conversion) El valor de a (felt252) es: 2
+
