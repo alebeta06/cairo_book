@@ -106,3 +106,22 @@ fn main() -> () {
     let my_u128_conv: u128 = my_felt252.try_into().unwrap();
     println!("(Conversion con TryInto) my_felt252 convertido a u128: {}", my_u128_conv);
 }
+//salida por consola
+//(Escalar/Felt) Valor predeterminado (felt252): 3
+//(Enteros) a_u8: 10, a_u16: 10, a_u32: 10, a_u64: 10, a_u128: 10
+//(Operaciones) Suma: 5 + 10 = 15
+//(Operaciones) Resta: 95 - 4 = 91
+//(Operaciones) Multiplicacion: 4 * 30 = 120
+//(Operaciones) Division: 64 / 32 = 2
+//(Operaciones) Modulo: 43 % 5 = 3
+//(Booleanos) t = true, f = false
+//(Cadenas cortas) Valor: 310939249775
+//(Cadenas cortas) Valor en hexadecimal: 310939249775
+//(ByteArray) Cadena larga: This is a longer string that exceeds 31 characters
+//(Tupla) Tercer elemento: 7
+//(Unidad) Valor de unidad: ()
+//(Array) Array de tamano fijo: [1, 2, 3, 4, 5]
+//(Array) Cuarto elemento (por desestructuracion): 4
+//(Conversion con Into) my_u8: 10, my_u16: 10, my_u32: 10, my_u64: 10, my_u128: 10
+//(Conversion con TryInto) my_felt252 convertido a u128: 10
+
