@@ -45,3 +45,9 @@ fn main() {
         println!("condition was true and number is {}", otro_num);
     }
 }
+//salidas por consola
+
+//condition was false and number = 3
+//numero is 7
+//condition was true and number is 9
+
