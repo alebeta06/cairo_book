@@ -1,0 +1,27 @@
+[package]
+name = "flujo_de_control"
+version = "0.1.0"
+edition = "2024_07"
+
+[dependencies]
+cairo_execute = "2.10.1"
+starknet = "2.11.2"
+
+[lib]
+sierra = true
+casm = true
+
+[executable]
+
+[dev-dependencies]
+snforge_std = "0.38.0"
+assert_macros = "2.11.2"
+
+[scripts]
+test = "snforge test"
+
+[tool.scarb]
+allow-prebuilt-plugins = ["snforge_std"]
+
+[cairo]
+enable-gas = false
