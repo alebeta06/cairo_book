@@ -1,4 +1,4 @@
-##[executable]
+#[executable]
 fn main() {
     let number = 3;
 
