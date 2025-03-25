@@ -20,3 +20,16 @@ fn main() {
 }
 //Este ejemplo muestra la creación, lectura, eliminación y uso de la macro para crear matrices
 
+//Sin array!:
+
+//let mut arr = ArrayTrait::new();
+//arr.append(1);
+//arr.append(2);
+//arr.append(3);
+//arr.append(4);
+//arr.append(5);
+
+//El uso de la macro array! es más conciso y fácil de leer que la creación manual de una matriz.
+
+//let arr = array![1, 2, 3, 4, 5];
+
