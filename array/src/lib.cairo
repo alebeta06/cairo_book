@@ -33,3 +33,9 @@ fn main() {
 
 //let arr = array![1, 2, 3, 4, 5];
 
+//el operador * se utiliza para desreferenciar el puntero devuelto por at() para obtener el valor
+//u128 directamente almacenado en la matriz.
+//En Cairo, los métodos como .at(index) devuelven referencias en lugar de valores directos para
+//optimizar el uso de memoria y evitar copias innecesarias.
+//Si queremos trabajar con el valor real, usamos * para obtenerlo.
+
