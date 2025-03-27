@@ -29,3 +29,8 @@ fn main() {
     println!("Alex's balance is: {alex_balance}");
     println!("Maria's balance is: {maria_balance}");
 }
+//salida por consola
+//Alex's balance is: 100
+//Maria's balance is: 200
+
+
