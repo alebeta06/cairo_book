@@ -30,3 +30,8 @@ pub fn valores() {
     let mary_balance: u64 = balances.get(2);
     println!("El balance de Mary (despues de 'eliminar') es: {}", mary_balance);
 }
+//Salida por consola
+//El balance de Alex es: 100
+//El balance actualizado de Alex es: 150
+//El balance de Mary (despues de 'eliminar') es: 0
+
