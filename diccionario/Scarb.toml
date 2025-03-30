@@ -3,15 +3,15 @@ name = "diccionario"
 version = "0.1.0"
 edition = "2024_07"
 
-[dependencies]
-cairo_execute = "2.10.1"
-starknet = "2.10.1"
-
-[lib]  # Esto es si es una biblioteca, de lo contrario, reemplázalo con [executable]
+[[target.executable]]
+name = "balance_usuarios"
+function = "diccionario::dict_ejemplo1::balance_usuarios"
 sierra = true
 casm = true
 
-[executable] 
+[dependencies]
+cairo_execute = "2.10.1"
+starknet = "2.10.1"
 
 [dev-dependencies]
 snforge_std = "0.38.0"
