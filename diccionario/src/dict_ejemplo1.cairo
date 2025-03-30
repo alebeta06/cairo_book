@@ -29,6 +29,8 @@ pub fn balance_usuarios() {
     println!("Alex's balance is: {alex_balance}");
     println!("Maria's balance is: {maria_balance}");
 }
+////scarb execute --executable-name balance_usuarios
+
 //salida por consola
 //Alex's balance is: 100
 //Maria's balance is: 200
