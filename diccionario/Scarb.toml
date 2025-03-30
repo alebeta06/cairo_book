@@ -9,6 +9,12 @@ function = "diccionario::dict_ejemplo1::balance_usuarios"
 sierra = true
 casm = true
 
+[[target.executable]]
+name = "valores"
+function = "diccionario::dict_ejemplo2::valores"
+sierra = true
+casm = true
+
 [dependencies]
 cairo_execute = "2.10.1"
 starknet = "2.10.1"
