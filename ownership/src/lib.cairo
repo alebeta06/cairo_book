@@ -26,6 +26,8 @@ fn main() -> () {
 
     // Llamamos a move_point, que copia el valor de p1 y lo retorna.
     // Si no usamos el resultado, se mostrará una advertencia.
+    //Se llama a move_point(p1) y se guarda en _p2 (con un guión bajo para ignorar la advertencia
+    //de variable no utilizada)
     let _p2 = move_point(p1);
 
     // Imprimimos el valor de p1 para confirmar que sigue siendo válido.
@@ -35,4 +37,5 @@ fn main() -> () {
 //Usando Point en use_point: 10 y 20
 //Moviendo propiedad de Point: 10 y 20
 //p1 sigue siendo valido: 10 y 20
+
 
