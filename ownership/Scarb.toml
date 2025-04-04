@@ -5,7 +5,7 @@ edition = "2024_07"
 
 
 [dependencies]
-cairo_execute = "2.10.1"
+cairo_execute = "2.11.2"
 
 [dev-dependencies]
 snforge_std = "0.38.0"
