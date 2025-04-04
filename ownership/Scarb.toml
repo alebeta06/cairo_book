@@ -11,6 +11,11 @@ cairo_execute = "2.11.2"
 snforge_std = "0.38.0"
 assert_macros = "2.11.2"
 
+[[target.executable]]
+main = "src/lib.cairo"
+sierra = true
+casm = true
+
 [lib]
 sierra = true
 casm = true
