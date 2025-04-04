@@ -31,3 +31,8 @@ fn main() -> () {
     // Imprimimos el valor de p1 para confirmar que sigue siendo válido.
     println!("p1 sigue siendo valido: {} y {}", p1.x, p1.y);
 }
+//Salida por consola:
+//Usando Point en use_point: 10 y 20
+//Moviendo propiedad de Point: 10 y 20
+//p1 sigue siendo valido: 10 y 20
+
