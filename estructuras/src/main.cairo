@@ -5,4 +5,5 @@ fn main() {
     usuario();
     pregunta1();
     pregunta2();
+    geometrico();
 }

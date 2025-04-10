@@ -19,10 +19,7 @@ use core::traits::Into;
 // Esto nos permitirá convertir un cuadrado en rectángulo cuando lo necesitemos.
 impl SquareIntoRectangle of Into<Square, Rectangle> {
     fn into(self: Square) -> Rectangle {
-        Rectangle {
-            width: self.side_length,
-            height: self.side_length,
-        }
+        Rectangle { width: self.side_length, height: self.side_length }
     }
 }
 
@@ -30,7 +27,7 @@ impl SquareIntoRectangle of Into<Square, Rectangle> {
 // Definimos la función geometrico(), que será el punto de entrada de nuestro programa.
 pub fn geometrico() {
     // Imprimimos un separador para hacer más claro en consola lo que ocurre.
-    println!("--- Cálculo de áreas usando estructuras ---");
+    println!("--- Calculo de areas usando estructuras ---");
 
     // Creamos un rectángulo de 30 de ancho por 10 de alto.
     let rectangle = Rectangle { width: 30, height: 10 };
@@ -39,7 +36,7 @@ pub fn geometrico() {
     let area_rectangle = area(rectangle);
 
     // Mostramos en consola el área del rectángulo.
-    println!("Área del rectángulo (30x10) es: {}", area_rectangle);
+    println!("Area del rectangulo (30x10) es: {}", area_rectangle);
 
     // Ahora creamos un cuadrado de lado 20.
     let square = Square { side_length: 20 };
@@ -51,7 +48,9 @@ pub fn geometrico() {
     let area_square_as_rectangle = area(rectangle_from_square);
 
     // Mostramos en consola el área del cuadrado convertido.
-    println!("Área del cuadrado (lado 20) convertido en rectángulo es: {}", area_square_as_rectangle);
+    println!(
+        "Area del cuadrado (lado 20) convertido en rectangulo es: {}", area_square_as_rectangle,
+    );
 
     println!("--- Fin del programa ---");
 }
