@@ -59,3 +59,11 @@ pub fn geometrico() {
 fn area(rectangle: Rectangle) -> u64 {
     rectangle.width * rectangle.height
 }
+//Salida esperada:
+//~/cairo_book/estructuras$ scarb execute --executable-name geometrico
+
+//--- Calculo de areas usando estructuras ---
+//Area del rectangulo (30x10) es: 300
+//Area del cuadrado (lado 20) convertido en rectangulo es: 400
+//--- Fin del programa ---
+
