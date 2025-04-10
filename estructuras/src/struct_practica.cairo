@@ -102,3 +102,16 @@ pub fn usuario() {
 fn build_user_short(email: ByteArray, username: ByteArray) -> User {
     User { active: true, username, email, sign_in_count: 1 }
 }
+//salida por consola
+
+//~/cairo_book/estructuras$ scarb execute --executable-name usuario
+
+//   Executing estructuras
+//User1 -> active: true, username: someusername123, email: someone@example.com, sign_in_count: 1
+//User2 -> active: true, username: anotheruser456, email: another@example.com, sign_in_count: 1
+//User3 inicial -> email: initial@example.com
+//User3 actualizado -> email: updated@example.com
+//Built User (usando build_user_short) -> active: true, username: shortuser, email:
+//short@example.com, sign_in_count: 1 User4 (actualizacion de user3) -> active: true, username:
+//mutableuser, email: new@example.com, sign_in_count: 1
+
