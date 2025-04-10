@@ -26,3 +26,9 @@ pub fn pregunta2() {
     //2 }
     println!("{} {}", p.x, p.y);
 }
+//Salida por consola:
+
+//~/cairo_book/estructuras$ scarb execute --executable-name pregunta2
+
+//1 2
+
