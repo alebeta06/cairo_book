@@ -79,8 +79,7 @@ impl RectangleImpl of RectangleTrait {
     // ---------------------------------------------------------
     fn avg(lhs: @Rectangle, rhs: @Rectangle) -> Rectangle {
         Rectangle {
-            width: ((*lhs.width + *rhs.width) / 2),
-            height: ((*lhs.height + *rhs.height) / 2),
+            width: ((*lhs.width + *rhs.width) / 2), height: ((*lhs.height + *rhs.height) / 2),
         }
     }
 }
@@ -90,43 +89,34 @@ impl RectangleImpl of RectangleTrait {
 // Aquí probamos todos los métodos y funciones asociadas.
 // -------------------------------------------------------------
 #[executable]
-fn main() {
+pub fn syntax_geometria() {
     println!("--- Ejemplo de Method Syntax en Cairo ---");
 
     // 1) Creamos un rectángulo de 30×50 y calculamos su área
     let rect1 = Rectangle { width: 30, height: 50 };
-    let area1 = rect1.area();  // llamada al método area()
-    println!("Área de rect1 (30×50): {}", area1);
+    let area1 = rect1.area(); // llamada al método area()
+    println!("Area de rect1 (30x50): {}", area1);
 
     // 2) Escalamos rect1 por un factor de 2
     let mut rect2 = Rectangle { width: 10, height: 20 };
-    println!("Tamaño original de rect2: ({} × {})", rect2.width, rect2.height);
-    rect2.scale(2);  // llamada al método scale()
-    println!("Tamaño de rect2 tras scale(2): ({} × {})", rect2.width, rect2.height);
+    println!("Tamano original de rect2: ({} x {})", rect2.width, rect2.height);
+    rect2.scale(2); // llamada al método scale()
+    println!("Tamano de rect2 tras scale(2): ({} x {})", rect2.width, rect2.height);
 
     // 3) Comprobamos si rect1 puede contener a rect2 y a un rectángulo mayor
     let rect3 = Rectangle { width: 60, height: 45 };
-    println!(
-        "¿rect1 puede contener a rect2? {}",
-        rect1.can_hold(@rect2)
-    );
-    println!(
-        "¿rect1 puede contener a rect3? {}",
-        rect1.can_hold(@rect3)
-    );
+    println!("rect1 puede contener a rect2? {}", rect1.can_hold(@rect2));
+    println!("rect1 puede contener a rect3? {}", rect1.can_hold(@rect3));
 
     // 4) Usamos las funciones asociadas new, square y avg
     let r_new = RectangleTrait::new(5, 8);
-    println!("Rectángulo creado con new(5,8): ({} × {})", r_new.width, r_new.height);
+    println!("Rectangulo creado con new(5,8): ({} x {})", r_new.width, r_new.height);
 
     let r_sq = RectangleTrait::square(7);
-    println!("Rectángulo cuadrado con square(7): ({} × {})", r_sq.width, r_sq.height);
+    println!("Rectangulo cuadrado con square(7): ({} x {})", r_sq.width, r_sq.height);
 
     let r_avg = RectangleTrait::avg(@rect1, @rect3);
-    println!(
-        "Promedio entre rect1 y rect3: ({} × {})",
-        r_avg.width, r_avg.height
-    );
+    println!("Promedio entre rect1 y rect3: ({} x {})", r_avg.width, r_avg.height);
 
     println!("--- Fin del ejemplo ---");
 }

@@ -6,4 +6,5 @@ fn main() {
     pregunta1();
     pregunta2();
     geometrico();
+    syntax_geometria();
 }
