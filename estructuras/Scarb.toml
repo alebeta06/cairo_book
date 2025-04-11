@@ -35,6 +35,12 @@ function = "estructuras::struct_geometria::geometrico"
 sierra = true
 casm = true
 
+[[target.executable]]
+name = "syntax_geometria"
+function = "estructuras::method_syntax::syntax_geometria"
+sierra = true
+casm = true
+
 [dev-dependencies]
 snforge_std = "0.38.0"
 assert_macros = "2.10.1"
