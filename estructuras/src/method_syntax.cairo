@@ -120,3 +120,17 @@ pub fn syntax_geometria() {
 
     println!("--- Fin del ejemplo ---");
 }
+//Salida esperada:
+
+//~/cairo_book/estructuras$ scarb execute --executable-name syntax_geometria
+//--- Ejemplo de Method Syntax en Cairo ---
+//Area de rect1 (30x50): 1500
+//Tamano original de rect2: (10 x 20)
+//Tamano de rect2 tras scale(2): (20 x 40)
+//rect1 puede contener a rect2? true
+//rect1 puede contener a rect3? false
+//Rectangulo creado con new(5,8): (5 x 8)
+//Rectangulo cuadrado con square(7): (7 x 7)
+//Promedio entre rect1 y rect3: (45 x 47)
+//--- Fin del ejemplo ---
+
