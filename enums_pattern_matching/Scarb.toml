@@ -1,0 +1,29 @@
+[package]
+name = "enums_pattern_matching"
+version = "0.1.0"
+edition = "2024_07"
+
+[dependencies]
+cairo_execute = "2.10.1"
+starknet = "2.11.2"
+
+[lib]
+sierra = true
+casm = true
+
+[[target.executable]]
+name = "enumeracioes"
+function = "enums_pattern_matching::enums::enumeraciones"
+sierra = true
+casm = true
+
+[dev-dependencies]
+snforge_std = "0.38.0"
+assert_macros = "2.11.2"
+
+
+[tool.scarb]
+allow-prebuilt-plugins = ["snforge_std"]
+
+[cairo]
+enable-gas = false
