@@ -65,3 +65,9 @@ pub fn enumeraciones() {
     let msg3 = Message::Move((10_u128, 20_u128));
     msg3.process(); // Imprime "Moviendo a las coordenadas: x = 10, y = 20"
 }
+//Salida por consola:
+//Direccion: Norte
+//Saliendo del programa
+//Eco: 1215261793
+//Moviendo a las coordenadas: x = 10, y = 20
+
