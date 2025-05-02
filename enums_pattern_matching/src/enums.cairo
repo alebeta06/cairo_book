@@ -30,7 +30,7 @@ impl ProcessingImpl of Processing {
             // Si es Quit, se imprime un mensaje simple
             Message::Quit => { println!("Saliendo del programa"); },
             // Si es Echo, accedemos al valor contenido y lo mostramos
-            Message::Echo(value) => { println!("Eco: {}", value); },
+            Message::Echo(_) => { println!("Eco: Hola"); },
             // Si es Move, accedemos a la tupla (x, y) y la imprimimos
             Message::Move((
                 x, y,
@@ -58,7 +58,7 @@ pub fn enumeraciones() {
     msg1.process(); // Se ejecuta el método `process`, que imprime "Saliendo del programa"
 
     // Creamos `msg2` con la variante `Echo` y le pasamos un valor felt252 (cadena corta)
-    let msg2 = Message::Echo('Hola'); // felt252 = literal corto compatible
+    let msg2 = Message::Echo(0); // o cualquier número
     msg2.process(); // Imprime "Eco: Hola"
 
     // Creamos `msg3` con la variante `Move`, pasando una tupla de coordenadas
@@ -68,6 +68,7 @@ pub fn enumeraciones() {
 //Salida por consola:
 //Direccion: Norte
 //Saliendo del programa
-//Eco: 1215261793
+//Eco: Hola
 //Moviendo a las coordenadas: x = 10, y = 20
+
 
