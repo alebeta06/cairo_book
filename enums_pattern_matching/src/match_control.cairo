@@ -1,13 +1,14 @@
-// Definimos una enumeración para representar diferentes monedas
-#[derive(Drop, Copy, Clone)]
+// Declaramos un enum llamado Moneda para representar distintas denominaciones
+#[derive(
+    Drop, Copy, Clone,
+)] // Derivamos Drop, Copy y Clone para poder copiar y pasar los valores fácilmente
 enum Moneda {
     Centavo, // Representa 1 centavo
     CincoCentavos, // Representa 5 centavos
     DiezCentavos, // Representa 10 centavos
     VeinticincoCentavos // Representa 25 centavos
 }
-
-// Función que devuelve el valor en centavos de una moneda
+// Función que recibe una Moneda y devuelve su valor en centavos como tipo u8
 fn valor_en_centavos(moneda: Moneda) -> u8 {
     match moneda {
         Moneda::Centavo => 1,
@@ -16,8 +17,7 @@ fn valor_en_centavos(moneda: Moneda) -> u8 {
         Moneda::VeinticincoCentavos => 25,
     }
 }
-
-// Definimos una enumeración para representar los días de la semana
+// Definimos los días de la semana con un enum llamado Dia
 #[derive(Drop)]
 enum Dia {
     Lunes,
@@ -29,47 +29,42 @@ enum Dia {
     Domingo,
 }
 
-// Función que determina si una moneda es aceptada en una máquina expendedora
-// dependiendo del día de la semana
+// Función que indica si una moneda es aceptada dependiendo del día de la semana
 fn aceptar_moneda(dia: Dia, moneda: Moneda) -> bool {
     match (dia, moneda) {
-        // Acepta todas las monedas de lunes a viernes
+        // De lunes a viernes se aceptan todas las monedas
         (Dia::Lunes, _) => true,
         (Dia::Martes, _) => true,
         (Dia::Miercoles, _) => true,
         (Dia::Jueves, _) => true,
         (Dia::Viernes, _) => true,
-        // Solo acepta DiezCentavos y VeinticincoCentavos los fines de semana
+        // El sábado y domingo solo se aceptan monedas de 10 y 25 centavos
         (Dia::Sabado, Moneda::DiezCentavos) => true,
         (Dia::Sabado, Moneda::VeinticincoCentavos) => true,
         (Dia::Domingo, Moneda::DiezCentavos) => true,
         (Dia::Domingo, Moneda::VeinticincoCentavos) => true,
-        // No acepta otras monedas los fines de semana
+        // Cualquier otro caso devuelve false
         _ => false,
     }
 }
 
-// Función principal del programa
+// Esta es la función ejecutable principal
 #[executable]
 pub fn control_de_flujo() {
-    // Creamos una moneda de 10 centavos
-    let moneda = Moneda::DiezCentavos;
-    // Obtenemos su valor en centavos
-    let valor = valor_en_centavos(moneda);
-    // Imprimimos el valor
-    println!("Valor de la moneda: {} centavos", valor);
+    let moneda = Moneda::DiezCentavos; // Creamos una moneda de 10 centavos
+    let valor = valor_en_centavos(moneda); // Obtenemos su valor
+    println!("Valor de la moneda: {} centavos", valor); // Mostramos el valor
 
-    // Verificamos si la moneda es aceptada el lunes
+    // Verificamos si se acepta el lunes
     let aceptada_lunes = aceptar_moneda(Dia::Lunes, moneda);
     println!("Aceptada el lunes? {}", aceptada_lunes);
 
-    // Verificamos si la moneda es aceptada el domingo
+    // Verificamos si se acepta el domingo
     let aceptada_domingo = aceptar_moneda(Dia::Domingo, moneda);
     println!("Aceptada el domingo? {}", aceptada_domingo);
 
-    // Creamos una moneda de 1 centavo
+    // Probamos con una moneda de 1 centavo el domingo
     let moneda2 = Moneda::Centavo;
-    // Verificamos si la moneda de 1 centavo es aceptada el domingo
     let aceptada_domingo2 = aceptar_moneda(Dia::Domingo, moneda2);
     println!("Moneda de 1 centavo aceptada el domingo? {}", aceptada_domingo2);
 }
@@ -81,4 +76,5 @@ pub fn control_de_flujo() {
 //Aceptada el lunes? true
 //Aceptada el domingo? true
 //Moneda de 1 centavo aceptada el domingo? false
+
 
