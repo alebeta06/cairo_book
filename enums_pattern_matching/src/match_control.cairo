@@ -1,7 +1,6 @@
 // Declaramos un enum llamado Moneda para representar distintas denominaciones
-#[derive(
-    Drop, Copy, Clone,
-)] // Derivamos Drop, Copy y Clone para poder copiar y pasar los valores fácilmente
+// Derivamos Drop, Copy y Clone para poder copiar y pasar los valores fácilmente
+#[derive(Drop, Copy, Clone)]
 enum Moneda {
     Centavo, // Representa 1 centavo
     CincoCentavos, // Representa 5 centavos
