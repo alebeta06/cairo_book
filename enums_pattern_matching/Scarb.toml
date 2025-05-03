@@ -17,6 +17,12 @@ function = "enums_pattern_matching::enums::enumeraciones"
 sierra = true
 casm = true
 
+[[target.executable]]
+name = "control_de_flujo"
+function = "enums_pattern_matching::match_control::control_de_flujo"
+sierra = true
+casm = true
+
 [dev-dependencies]
 snforge_std = "0.38.0"
 assert_macros = "2.11.2"
