@@ -5,4 +5,5 @@ fn main() {
     // Ejecutar el código de enumeraciones
     enumeraciones();
     control_de_flujo();
+    control_conciso();
 }
