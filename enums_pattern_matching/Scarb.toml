@@ -19,13 +19,13 @@ casm = true
 
 [[target.executable]]
 name = "control_de_flujo"
-function = "enums_pattern_matching::conciise_control::control_conciso"
+function = "enums_pattern_matching::match_control::control_de_flujo"
 sierra = true
 casm = true
 
 [[target.executable]]
 name = "control_conciso"
-function = "enums_pattern_matching::match_control::control_de_flujo"
+function = "enums_pattern_matching::concise_control::control_conciso"
 sierra = true
 casm = true
 
