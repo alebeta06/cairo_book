@@ -35,7 +35,7 @@ pub fn control_conciso() {
         Moneda::Centavo, Moneda::DiezCentavos, Moneda::VeinticincoCentavos, Moneda::CincoCentavos,
     ];
 
-    let mut total = 0;
+    let mut total: u8 = 0;
 
     // Sacamos monedas del array mientras haya
     while let Some(moneda) = monedas.pop_front() {
