@@ -73,3 +73,12 @@ pub fn control_de_flujo() {
     let aceptada_domingo2 = aceptar_moneda(Dia::Domingo, moneda2);
     println!("Moneda de 1 centavo aceptada el domingo? {}", aceptada_domingo2);
 }
+//Salida por consola
+
+//~/cairo_book/enums_pattern_matching$ scarb execute --executable-name control_de_flujo
+
+//Valor de la moneda: 10 centavos
+//Aceptada el lunes? true
+//Aceptada el domingo? true
+//Moneda de 1 centavo aceptada el domingo? false
+
