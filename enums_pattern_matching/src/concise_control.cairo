@@ -44,3 +44,9 @@ pub fn control_conciso() {
 
     println!("Valor total de monedas: {} centavos", total);
 }
+//Salida por consola:
+
+//:~/cairo_book/enums_pattern_matching$ scarb execute --executable-name control_conciso
+//Tu moneda favorita vale: 25 centavos
+//Valor total de monedas: 41 centavos
+
