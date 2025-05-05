@@ -64,5 +64,8 @@ fn main() {
     let k: i128 = 170141183460469231731687303715884105727;
     println!("la capacidad maxima de i128 es: {}", k);
     //2^127 - 1 = 170141183460469231731687303715884105727
+
+    let l: felt252 = 3;
+    println!("la capacidad maxima de felt252 es: {}", l);
 }
 
