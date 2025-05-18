@@ -63,3 +63,29 @@ fn main() {
     println!("Wallet 4 (boolean):");
     WalletBoolImpl::print_info(@wallet4);
 }
+//Salida por consola:
+//Wallet 1:
+//Wallet Info
+//Owner: 123
+//Balance: 100
+
+//Wallet 2:
+//Wallet Info
+//Owner: 456
+//Balance: 200
+
+//Wallet con mayor balance:
+//Wallet Info
+//Owner: 456
+//Balance: 200
+
+//Wallet 3 (boolean):
+//Wallet Info
+//Owner: 789
+//Balance: true
+
+//Wallet 4 (boolean):
+//Wallet Info
+//Owner: 101
+//Balance: false
+
