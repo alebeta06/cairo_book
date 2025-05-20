@@ -13,11 +13,11 @@ cairo_test = "2.11.2"
 
 [[target.executable]]
 name = "datos_genericos"
-source = "src/datos_genericos.cairo"
+function = "tipos_rasgos_genericos::datos_genericos::main"
 
 [[target.executable]]
 name = "trait_in_cairo"
-source = "src/trait_in_cairo.cairo"
+function = "tipos_rasgos_genericos::trait_in_cairo::main"
 
 [cairo]
 enable-gas = false
