@@ -63,7 +63,8 @@ fn verificar_si_no_cero(valor: u128) -> Option<u128> {
 }
 
 // Función principal que ejecuta todos los ejemplos
-fn main() {
+#[executable]
+pub fn irrecuperables() {
     // Ejemplo 1: Panic básico
     // Descomentar para ver el ejemplo
     // ejemplo_panic_basico();
