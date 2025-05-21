@@ -12,12 +12,12 @@ cairo_execute = "2.11.2+nightly-2025-03-12"
 cairo_test = "2.11.2"
 
 [[target.executable]]
-name = "datos_genericos"
-function = "tipos_rasgos_genericos::datos_genericos::main"
+name = "generic_data"
+function = "tipos_rasgos_genericos::datos_genericos::generic_data"
 
 [[target.executable]]
-name = "trait_in_cairo"
-function = "tipos_rasgos_genericos::trait_in_cairo::main"
+name = "trait_cairo"
+function = "tipos_rasgos_genericos::trait_in_cairo::trait_cairo"
 
 [cairo]
 enable-gas = false
