@@ -56,7 +56,7 @@ impl TweetSummary of Summary<Tweet> {
 
 // Función principal para demostrar el uso de traits
 #[executable]
-fn main() {
+pub fn trait_cairo() {
     // Crear un artículo de noticias
     let news = NewsArticle {
         headline: "Cairo El lenguaje del futuro",
