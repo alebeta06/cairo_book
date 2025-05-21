@@ -39,7 +39,7 @@ fn largest_balance(w1: @Wallet<u32>, w2: @Wallet<u32>) -> Wallet<u32> {
 
 // Función principal del programa
 #[executable]
-fn main() {
+pub fn generic_data() {
     // Creamos dos wallets con balance u32
     let wallet1: Wallet<u32> = Wallet { balance: 100_u32, owner: 123 };
     let wallet2: Wallet<u32> = Wallet { balance: 200_u32, owner: 456 };
@@ -88,4 +88,5 @@ fn main() {
 //Wallet Info
 //Owner: 101
 //Balance: false
+
 
