@@ -1,5 +1,5 @@
-use core::option::OptionTrait;
-use core::panic_with_felt252;
+use core::option::OptionTrait; // para el Option
+use core::panic_with_felt252; // para el panic_with
 
 // Ejemplo 1: Panic básico usando un array
 fn ejemplo_panic_basico() {
@@ -7,7 +7,7 @@ fn ejemplo_panic_basico() {
     println!("Intentando ejecutar codigo que causara panic...");
 
     // Creamos un array con un codigo de error
-    let error_code = array![42];
+    let error_code = array![42]; //El programa se detiene aquí
 
     // Esto causará que el programa se detenga
     panic(error_code);
@@ -22,7 +22,7 @@ fn ejemplo_panic_felt252() {
     println!("Intentando ejecutar codigo que causara panic con felt252...");
 
     // Esta es una forma más idiomática de causar panic
-    panic_with_felt252(42);
+    panic_with_felt252(42); // Forma mas simple de causar panic
 
     // Esta línea nunca se ejecutará
     println!("Esta linea nunca se alcanzara");
@@ -65,19 +65,12 @@ fn verificar_si_no_cero(valor: u128) -> Option<u128> {
 // Función principal que ejecuta todos los ejemplos
 #[executable]
 pub fn irrecuperables() {
-    // Ejemplo 1: Panic básico
-    // Descomentar para ver el ejemplo
+    // Los primeros 3 ejemplos estan comentados porque causarian panic
     // ejemplo_panic_basico();
-
-    // Ejemplo 2: Panic con felt252
-    // Descomentar para ver el ejemplo
     // ejemplo_panic_felt252();
-
-    // Ejemplo 3: Panic con macro
-    // Descomentar para ver el ejemplo
     // ejemplo_panic_macro();
 
-    // Ejemplo 4: Función nopanic
+    // Ejemplo 4: Funcion segura nopanic
     let resultado = funcion_segura();
     println!("Resultado de funcion segura: {}", resultado);
 
