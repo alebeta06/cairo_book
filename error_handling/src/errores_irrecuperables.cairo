@@ -1,5 +1,5 @@
+use core::option::OptionTrait;
 use core::panic_with_felt252;
-use debug::PrintTrait;
 
 // Ejemplo 1: Panic básico usando un array
 fn ejemplo_panic_basico() {
@@ -56,9 +56,9 @@ fn verificar_si_no_cero(valor: u128) -> Option<u128> {
     println!("Verificando si el valor es cero...");
 
     if valor == 0 {
-        None
+        Option::None
     } else {
-        Some(valor)
+        Option::Some(valor)
     }
 }
 
