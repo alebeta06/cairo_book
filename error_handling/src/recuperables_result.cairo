@@ -1,7 +1,5 @@
-use debug::PrintTrait;
-use option::OptionTrait;
-use result::ResultTrait;
-use traits::TryInto;
+use core::result::ResultTrait;
+use core::traits::TryInto;
 
 // Función que intenta convertir un felt252 a u8
 // Retorna Result<u8, felt252> donde:
@@ -10,40 +8,24 @@ use traits::TryInto;
 fn parse_u8(s: felt252) -> Result<u8, felt252> {
     match s.try_into() {
         Option::Some(value) => Result::Ok(value),
-        Option::None => Result::Err('Invalid integer: number out of u8 range'),
+        Option::None => Result::Err(1) // Usando 1 como código de error
     }
 }
 
 // Función que demuestra el uso de unwrap() y expect()
-// unwrap() causará panic con mensaje por defecto
-// expect() causará panic con mensaje personalizado
+// Esta función está comentada en main() para evitar panic
 fn demonstrate_unwrap_and_expect(input: felt252) {
-    println!("Testing unwrap and expect with input: {}", input);
-
     // Usando unwrap - causará panic si hay error
-    let unwrapped = parse_u8(input).unwrap();
-    println!("Unwrap successful! Value: {}", unwrapped);
+    let _ = parse_u8(input).unwrap();
 
     // Usando expect - causará panic con mensaje personalizado si hay error
-    let expected = parse_u8(input).expect('Custom error message for expect');
-    println!("Expect successful! Value: {}", expected);
+    let _ = parse_u8(input).expect(2); // Usando 2 como mensaje de error personalizado
 }
 
 // Función que demuestra el uso de is_ok() e is_err()
-fn check_result_status(input: felt252) {
-    println!("\nChecking result status for input: {}", input);
-
+fn check_result_status(input: felt252) -> bool {
     let result = parse_u8(input);
-
-    // Verificando si el resultado es Ok
-    if result.is_ok() {
-        println!("Result is Ok!");
-    }
-
-    // Verificando si el resultado es Err
-    if result.is_err() {
-        println!("Result is Err!");
-    }
+    result.is_ok()
 }
 
 // Función que demuestra el uso del operador ? para propagar errores
@@ -53,37 +35,28 @@ fn process_number(input: felt252) -> Result<u8, felt252> {
 
     // Si llegamos aquí, sabemos que number es válido
     let result = number + 1;
-    println!("Processed number successfully: {}", result);
-
     Result::Ok(result)
 }
 
+#[executable]
 // Función principal que ejecuta todos los ejemplos
-fn main() {
-    // Ejemplo 1: Número válido
-    println!("=== Testing with valid number (5) ===");
+pub fn result_examples() {
+    // Ejemplo 1: Número válido (5)
     let valid_number: felt252 = 5;
-    check_result_status(valid_number);
+    let is_valid = check_result_status(valid_number);
+    println!("Valid number test: {}", is_valid);
 
-    match process_number(valid_number) {
-        Result::Ok(value) => println!("Final result: {}", value),
-        Result::Err(e) => println!("Error occurred: {}", e),
-    }
-
-    // Ejemplo 2: Número inválido (fuera de rango)
-    println!("\n=== Testing with invalid number (256) ===");
+    // Ejemplo 2: Número inválido (256)
     let invalid_number: felt252 = 256;
-    check_result_status(invalid_number);
+    let is_invalid = check_result_status(invalid_number);
+    println!("Invalid number test: {}", is_invalid);
 
-    match process_number(invalid_number) {
-        Result::Ok(value) => println!("Final result: {}", value),
-        Result::Err(e) => println!("Error occurred: {}", e),
+    // Mostramos el resultado final
+    if is_valid && !is_invalid {
+        println!("Final result: SUCCESS (1)");
+    } else {
+        println!("Final result: FAILURE (0)");
     }
-
-    // Ejemplo 3: Demostrando unwrap y expect (esto causará panic)
-    println!("\n=== Testing unwrap and expect (will panic) ===");
-    // Comentado para evitar que el programa entre en panic
-// demonstrate_unwrap_and_expect(256);
 }
 
 // Tests para verificar el comportamiento
