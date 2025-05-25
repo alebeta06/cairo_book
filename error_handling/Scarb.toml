@@ -13,5 +13,9 @@ cairo_test = "2.11.2"
 name = "irrecuperables"
 function = "error_handling::errores_irrecuperables::irrecuperables"
 
+[[target.executable]]
+name = "result_examples"
+function = "error_handling::recuperables_result::result_examples"
+
 [cairo]
 enable-gas = false
