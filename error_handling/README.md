@@ -18,19 +18,63 @@ error_handling/
 
 ## 1. Errores Irrecuperables (`errores_irrecuperables.cairo`)
 
-Los errores irrecuperables son situaciones donde el programa no puede continuar su ejecución. En Cairo, esto se maneja usando `panic!`.
+Los errores irrecuperables son situaciones donde el programa no puede continuar su ejecución. En Cairo, esto se maneja usando `panic!`. Estos errores son útiles cuando:
+
+- El programa encuentra un estado inválido
+- No hay forma de recuperarse del error
+- Es mejor detener la ejecución que continuar con datos inválidos
 
 ### Características principales:
 
 - Uso de `panic!` para detener la ejecución del programa
-- Ejemplos de situaciones que causan panic
-- Manejo de condiciones que no deberían ocurrir
+- Uso de `panic_with_felt252` para mensajes de error personalizados
+- Ejemplos de situaciones que causan panic:
+  - Acceso a índices inválidos
+  - Operaciones matemáticas inválidas
+  - Condiciones que no deberían ocurrir
+- Manejo de condiciones que no deberían ocurrir usando `assert!`
+
+### Ejemplo de uso:
+
+```cairo
+// Ejemplo de panic con mensaje personalizado
+fn verificar_cero(valor: felt252) {
+    if valor == 0 {
+        panic_with_felt252('El valor no puede ser cero');
+    }
+    println!("Valor recibido: {}", valor);
+}
+
+// Ejemplo de función segura que nunca entra en panic
+fn funcion_segura() -> felt252 {
+    42 // Siempre retorna un valor válido
+}
+```
 
 ### Para ejecutar el ejemplo:
 
 ```bash
 scarb execute --executable-name irrecuperables
 ```
+
+### Salida esperada:
+
+```
+=== Ejemplo 4: Funcion con nopanic ===
+Ejecutando funcion que nunca entrara en panic...
+Resultado de funcion segura: 42
+
+=== Ejemplo 5: Uso de panic_with ===
+Verificando si el valor es cero...
+Valor recibido: 42
+```
+
+### Notas sobre los warnings:
+
+Al ejecutar el programa, verás algunos warnings que son esperados:
+
+- `Unused import: OptionTrait` - El import no se usa en el código
+- `Unreachable code` - Código que nunca se ejecutará debido a los `panic!`
 
 ## 2. Errores Recuperables (`recuperables_result.cairo`)
 
