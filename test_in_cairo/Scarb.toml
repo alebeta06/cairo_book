@@ -6,6 +6,7 @@ edition = "2024_07"
 # See more keys and their definitions at https://docs.swmansion.com/scarb/docs/reference/manifest.html
 
 [dependencies]
+cairo_execute = "2.11.2+nightly-2025-03-12"
 starknet = "2.11.2"
 
 [dev-dependencies]
@@ -14,6 +15,10 @@ assert_macros = "2.11.2"
 
 [[target.starknet-contract]]
 sierra = true
+
+# [[target.executable]]
+# name = "test_in_cairo"
+# sierra = true
 
 [scripts]
 test = "snforge test"
@@ -50,3 +55,6 @@ allow-prebuilt-plugins = ["snforge_std"]
 
 # [features]                                                 # Used for conditional compilation
 # enable_for_tests = []                                      # Feature name and list of other features that should be enabled with it
+
+# [cairo]
+# enable-gas = false
