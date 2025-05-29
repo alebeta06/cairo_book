@@ -1,26 +1,28 @@
-use core::traits::TryInto;
-use snforge_std::*; // Necesario para los atributos de prueba
+//use snforge_std::*; // Necesario para los atributos de prueba
 
 // Estructura para representar un rectángulo
 #[derive(Drop, Debug, PartialEq)]
-struct Rectangle {
-    width: u64,
-    height: u64,
+pub struct Rectangle {
+    pub width: u64,
+    pub height: u64,
 }
 
 // Implementación de métodos para Rectangle
 impl RectangleImpl of RectangleTrait {
     fn can_hold(self: @Rectangle, other: @Rectangle) -> bool {
+        //Implementar la lógica para verificar si el rectángulo self puede contener al rectángulo
+        //other
         *self.width > *other.width && *self.height > *other.height
     }
 
     fn area(self: @Rectangle) -> u64 {
+        //Implementar la lógica para calcular el área del rectángulo
         *self.width * *self.height
     }
 }
 
 // Trait para Rectangle
-trait RectangleTrait {
+pub trait RectangleTrait {
     fn can_hold(self: @Rectangle, other: @Rectangle) -> bool;
     fn area(self: @Rectangle) -> u64;
 }
@@ -45,7 +47,7 @@ pub fn create_valid_number(value: u64) -> Result<u64, felt252> {
     }
 }
 
-// Función privada para validar un número
+// Función privada para validar un número entre 1 y 100
 fn validate_number(value: u64) -> bool {
     value > 0 && value <= 100
 }
