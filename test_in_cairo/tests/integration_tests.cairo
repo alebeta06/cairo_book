@@ -1,4 +1,3 @@
-use core::traits::TryInto;
 use snforge_std::*;
 use test_in_cairo::{add, create_valid_number};
 
@@ -16,7 +15,7 @@ fn test_valid_number_integration() {
 fn test_invalid_number_integration() {
     match create_valid_number(200) {
         Result::Ok(_) => { panic(array!['Should have failed']); },
-        Result::Err(e) => { panic(array![e]); },
+        Result::Err(e) => { assert_eq!(e, 999); },
     }
 }
 
