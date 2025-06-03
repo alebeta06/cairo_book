@@ -1,131 +1,125 @@
-// Ejemplo de cierres (closures) en Cairo
-// --------------------------------------
-// Los cierres son funciones anónimas que pueden capturar variables de su entorno.
-// Son útiles para pasar comportamientos como parámetros y personalizar funciones.
+// Funciones en Cairo
+// ----------------
+// Este ejemplo demuestra el uso de funciones en Cairo.
+// Nota: Los closures estan siendo introducidos en Cairo 2.9+ pero aun estan en desarrollo.
+use core::debug::PrintTrait;
+use core::array::ArrayTrait;
 
-use debug::PrintTrait;
-
-// Ejemplo 1: Definición básica de un cierre y uso de inferencia de tipos
-fn example_basic_closure() {
-    // Definimos un cierre que duplica el valor recibido.
-    let double = |value| value * 2;
-    // El tipo de 'value' se infiere en la primera llamada (u8 en este caso).
-    println!("Double of 2 is {}", double(2_u8));
-    println!("Double of 4 is {}", double(4_u8));
-    // Si intentamos usar otro tipo, dará error de tipos.
-    // println!("Double of 6 is {}", double(6_u16)); // Descomenta para ver el error
+// Ejemplo 1: Definicion basica de funcion
+fn double(x: u8) -> u8 {
+    x * 2
 }
 
-// Ejemplo 2: Cierre con múltiples argumentos y anotaciones de tipo
-fn example_closure_with_types() {
-    // Aquí especificamos los tipos de los argumentos y el valor de retorno.
-    let sum = |x: u32, y: u32, z: u16| {
-        x + y + z.into()
-    };
-    println!("Result: {}", sum(1, 2, 3));
+fn example_basic_function() {
+    println!("El doble de 2 es {}", double(2));
+    println!("El doble de 4 es {}", double(4));
 }
 
-// Ejemplo 3: Captura de variables del entorno
-fn example_capture_env() {
-    let x = 8;
-    // El cierre puede usar 'x' aunque no sea un argumento.
-    let my_closure = |value| {
-        x * (value + 3)
-    };
-    println!("my_closure(1) = {}", my_closure(1));
+// Ejemplo 2: Funcion con multiples argumentos
+fn sum(x: u32, y: u32, z: u32) -> u32 {
+    x + y + z
 }
 
-// Ejemplo 4: Comparación entre función y cierre
-fn add_one_v1(x: u32) -> u32 { x + 1 }
+fn example_function_with_types() {
+    println!("Resultado: {}", sum(1, 2, 3));
+}
 
-fn example_function_vs_closure() {
-    // Cierre con tipos explícitos
-    let add_one_v2 = |x: u32| -> u32 { x + 1 };
-    // Cierre con tipos inferidos y cuerpo en bloque
-    let add_one_v3 = |x| { x + 1 };
-    // Cierre con tipos inferidos y cuerpo de una sola expresión
-    let add_one_v4 = |x| x + 1;
+// Ejemplo 3: Uso de variables externas
+fn multiply_by_x(x: u32, value: u32) -> u32 {
+    x * (value + 3)
+}
+
+fn example_capture_environment() {
+    let x: u32 = 8;
+    println!("Resultado: {}", multiply_by_x(x, 1));
+}
+
+// Ejemplo 4: Comparacion de funciones
+fn add_one_v1(x: u32) -> u32 {
+    x + 1
+}
+
+fn add_one_v2(x: u32) -> u32 {
+    x + 1
+}
+
+fn add_one_v3(x: u32) -> u32 {
+    x + 1
+}
+
+fn add_one_v4(x: u32) -> u32 {
+    x + 1
+}
+
+fn example_function_comparison() {
     println!("add_one_v1(5) = {}", add_one_v1(5));
     println!("add_one_v2(5) = {}", add_one_v2(5));
     println!("add_one_v3(5) = {}", add_one_v3(5));
     println!("add_one_v4(5) = {}", add_one_v4(5));
 }
 
-// Ejemplo 5: Uso de cierres en map y filter sobre arrays
-trait ArrayExtTrait<T> {
-    fn map<F, Output>(self: Array<T>, f: F) -> Array<Output>;
-}
+// Ejemplo 5: Operaciones con arrays
+fn example_array_operations() {
+    let mut arr1 = ArrayTrait::new();
+    arr1.append(1_u32);
+    arr1.append(2_u32);
+    arr1.append(3_u32);
 
-#[generate_trait]
-impl ArrayExt of ArrayExtTrait {
-    #[inline(never)]
-    fn map<T, +Drop<T>, F, +Drop<F>, impl func: core::ops::Fn<F, (T,)>, +Drop<func::Output>>(
-        self: Array<T>, f: F,
-    ) -> Array<func::Output> {
-        let mut output: Array<func::Output> = array![];
-        for elem in self {
-            output.append(f(elem));
+    let mut arr2 = ArrayTrait::new();
+    arr2.append(3_u32);
+    arr2.append(4_u32);
+    arr2.append(5_u32);
+    arr2.append(6_u32);
+
+    // Duplicar cada elemento
+    let mut doubled = ArrayTrait::new();
+    let mut i: u32 = 0;
+    loop {
+        match arr1.pop_front() {
+            Option::Some(x) => {
+                doubled.append(x * 2);
+                i += 1;
+            },
+            Option::None => { break; }
+        };
+        if i >= 3 {
+            break;
         }
-        output
-    }
-}
+    };
 
-trait ArrayFilterExtTrait<T> {
-    fn filter<F>(self: Array<T>, f: F) -> Array<T>;
-}
-
-#[generate_trait]
-impl ArrayFilterExt of ArrayFilterExtTrait {
-    #[inline(never)]
-    fn filter<
-        T,
-        +Copy<T>,
-        +Drop<T>,
-        F,
-        +Drop<F>,
-        impl func: core::ops::Fn<F, (T,)>[Output: bool],
-        +Drop<func::Output>,
-    >(
-        self: Array<T>, f: F,
-    ) -> Array<T> {
-        let mut output: Array<T> = array![];
-        for elem in self {
-            if f(elem) {
-                output.append(elem);
-            }
+    // Filtrar numeros pares
+    let mut even = ArrayTrait::new();
+    let mut i: u32 = 0;
+    loop {
+        match arr2.pop_front() {
+            Option::Some(x) => {
+                if x % 2 == 0 {
+                    even.append(x);
+                }
+                i += 1;
+            },
+            Option::None => { break; }
+        };
+        if i >= 4 {
+            break;
         }
-        output
-    }
-}
+    };
 
-fn example_map_and_filter() {
-    let double = array![1, 2, 3].map(|item: u32| item * 2);
-    let another = array![1, 2, 3].map(|item: u32| {
-        let x: u64 = item.into();
-        x * x
-    });
-    let even = array![3, 4, 5, 6].filter(|item: u32| item % 2 == 0);
-    println!("double: {:?}", double);
-    println!("another: {:?}", another);
-    println!("even: {:?}", even);
+    println!("Array original: {:?}", arr1);
+    println!("Array duplicado: {:?}", doubled);
+    println!("Numeros pares: {:?}", even);
 }
-
-// Función principal para ejecutar todos los ejemplos
+#[executable]
 fn main() {
-    println!("--- Ejemplo 1: Closure basico ---");
-    example_basic_closure();
-    println!("\n--- Ejemplo 2: Closure con tipos ---");
-    example_closure_with_types();
-    println!("\n--- Ejemplo 3: Captura de entorno ---");
-    example_capture_env();
-    println!("\n--- Ejemplo 4: Funcion vs Closure ---");
-    example_function_vs_closure();
-    println!("\n--- Ejemplo 5: map y filter con closures ---");
-    example_map_and_filter();
+    println!("--- Ejemplo 1: Definicion basica de funcion ---");
+    example_basic_function();
+    println!("\n--- Ejemplo 2: Funcion con tipos ---");
+    example_function_with_types();
+    println!("\n--- Ejemplo 3: Uso de variables externas ---");
+    example_capture_environment();
+    println!("\n--- Ejemplo 4: Comparacion de funciones ---");
+    example_function_comparison();
+    println!("\n--- Ejemplo 5: Operaciones con arrays ---");
+    example_array_operations();
 }
 
-// Explicación general:
-// - Los cierres permiten definir funciones anónimas que pueden capturar variables del entorno.
-// - Son útiles para personalizar el comportamiento de funciones y trabajar con colecciones.
-// - La inferencia de tipos hace que sean flexibles, pero hay que tener cuidado con los tipos usados.
-// - Se pueden usar como argumentos de funciones como map y filter para aplicar lógica personalizada.
