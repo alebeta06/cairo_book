@@ -1,6 +1,8 @@
 // Función principal que calcula el número de Fibonacci en la posición 16
+#[executable]
 fn main() -> u32 {
-    fib(16)
+    let result = fib(16);
+    result
 }
 
 // Función que calcula el número de Fibonacci en la posición n
