@@ -26,12 +26,6 @@ Esta guía te explica cómo desplegar tu contrato `HelloStarknet` usando tu wall
 sncast account import --name braavos --address <TU_DIRECCION_BRAAVOS> --private-key <TU_PRIVATE_KEY> --type braavos
 ```
 
-**Ejemplo:**
-
-```bash
-sncast account import --name braavos --address 0x03ebde8ec10deffe677cb203a5bc0e42b82e1e4a61e0156e6f9b70060704ac25 --private-key 0x07e46eed695f2b475487a2b19271614c20cacba2e3728172d9025f722d357b50 --type braavos
-```
-
 **Salida esperada:**
 
 ```
@@ -115,13 +109,6 @@ class: https://sepolia.starkscan.co/class/0x2f1ebaba81ba2c1d7ed51a231bcd13ce8d64
 transaction: https://sepolia.starkscan.co/tx/0x3eb385f7ef3c208ed84926296084a3dedbaf0a3e34f00234bfe4a16bc8abb39
 ```
 
-**Nota**:
-
-- Braavos te pedirá que firmes la transacción en tu wallet
-- Usamos `--fee-token eth --version v2` porque v3 requiere STRK tokens
-- El comando compilará automáticamente el contrato
-- **Guarda el class_hash** para el siguiente paso
-
 ### Paso 3: Desplegar el Contrato
 
 ```bash
@@ -140,8 +127,6 @@ To see deployment details, visit:
 contract: https://sepolia.starkscan.co/contract/0x2b07bdd78adb2bf9027c0efe0972187422e59412080a4cab560d6956b3f3914
 transaction: https://sepolia.starkscan.co/tx/0x481774695417695e59d75765f0095d527d809ed88ffa1892bb0332b9d642c64
 ```
-
-**Nota**: Braavos te pedirá que firmes la transacción en tu wallet.
 
 ## 🔧 Interacción con el Contrato
 
@@ -222,58 +207,3 @@ Después del deployment, puedes ver tu contrato en:
 4. ✅ **Interactuaste con el contrato** (obtuviste balance e incrementaste en 42)
 
 **¡Felicidades! Tu contrato `HelloStarknet` está ahora vivo en la red de Sepolia.**
-
-## 🐛 Solución de Problemas
-
-### Error: "Account not found"
-
-```bash
-# Importar cuenta de Braavos
-sncast account import --name braavos --address <TU_DIRECCION_BRAAVOS> --private-key <TU_PRIVATE_KEY> --type braavos
-```
-
-### Error: "Failed to parse value to felt"
-
-- Asegúrate de usar la private key **con** el prefijo `0x`
-- Ejemplo: `0x07e46eed695f2b475487a2b19271614c20cacba2e3728172d9025f722d357b50`
-
-### Error: "Max fee exceeds balance"
-
-- Reduce el valor de `--max-fee`
-- Ejemplo: `--max-fee 0x1000000000000` (en lugar de `0x100000000000000`)
-
-### Error: "Insufficient funds"
-
-- Verifica que tu wallet de Braavos tenga ETH
-- Visita: https://sepolia.starknet.io/faucet
-
-### Error: "Transaction rejected"
-
-- Verifica que estés en la red correcta (Sepolia) en Braavos
-- Asegúrate de firmar la transacción en tu wallet
-
-### Error: "HTTP status server error (502 Bad Gateway)"
-
-- Es un error temporal de red
-- Intenta el comando de nuevo
-- Si persiste, cambia el RPC en `snfoundry.toml`
-
-## 💡 Ventajas de usar Braavos
-
-1. **Seguridad**: Tus claves privadas están en tu wallet
-2. **Interfaz familiar**: Usas la misma wallet que conoces
-3. **Fácil gestión**: No necesitas manejar archivos de cuentas
-4. **Confirmación visual**: Ves cada transacción antes de firmar
-
-## 🎯 Flujo de Trabajo Típico
-
-1. **Compilar**: `scarb build`
-2. **Declarar**: `sncast declare --contract-name HelloStarknet --max-fee 0x1000000000000 --fee-token eth --version v2`
-3. **Firmar en Braavos**: Confirmar la transacción
-4. **Desplegar**: `sncast deploy --class-hash <CLASS_HASH> --max-fee 0x1000000000000 --fee-token eth`
-5. **Firmar en Braavos**: Confirmar la transacción
-6. **Interactuar**: `sncast call/invoke` según necesites
-
-## 🎉 ¡Listo!
-
-Con esta configuración, puedes usar tu wallet de Braavos para desplegar e interactuar con contratos de forma segura y conveniente.
