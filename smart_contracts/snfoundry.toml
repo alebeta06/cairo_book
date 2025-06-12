@@ -9,3 +9,18 @@
 # wait-params = { timeout = 300, retry-interval = 10 }     # Wait for submitted transaction parameters
 # block-explorer = "StarkScan"                             # Block explorer service used to display links to transaction details
 # show-explorer-links = true                               # Print links pointing to pages with transaction details in the chosen block explorer
+
+[sncast.default]
+url = "https://starknet-sepolia.public.blastapi.io"       # RPC de Sepolia testnet
+account = "braavos"                                       # Usar cuenta de Braavos
+wait-params = { timeout = 300, retry-interval = 10 }      # Parámetros de espera
+block-explorer = "StarkScan"                              # Explorador de bloques
+show-explorer-links = true                                # Mostrar enlaces al explorador
+
+# Configuración para Sepolia testnet con Braavos
+[sncast.sepolia]
+url = "https://starknet-sepolia.public.blastapi.io"
+account = "braavos"
+wait-params = { timeout = 300, retry-interval = 10 }
+block-explorer = "StarkScan"
+show-explorer-links = true
