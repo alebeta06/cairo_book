@@ -171,18 +171,45 @@ transaction: https://sepolia.starkscan.co/tx/0x5131cc8250fac692c87b85807445f69a6
 # Verificar que Braavos esté configurado
 sncast account list
 
-# Verificar conexión a la red
-sncast chain-id
+# Mostrar configuración actual
+sncast show-config
+```
+
+**Salida esperada de show-config:**
+
+```
+command: show-config
+account: braavos
+accounts_file_path: /home/alebeta/.starknet_accounts/starknet_open_zeppelin_accounts.json
+chain_id: alpha-sepolia
+rpc_url: https://starknet-sepolia.public.blastapi.io
+wait_retry_interval: 10
+wait_timeout: 300
 ```
 
 ### Información de Transacciones
 
 ```bash
-# Ver información del bloque actual
-sncast block latest
+# Ver estado de una transacción específica
+sncast tx-status 0x481774695417695e59d75765f0095d527d809ed88ffa1892bb0332b9d642c64
+```
 
-# Ver transacciones pendientes
-sncast tx-status <TRANSACTION_HASH>
+**Salida esperada de tx-status:**
+
+```
+command: tx-status
+execution_status: Succeeded
+finality_status: AcceptedOnL2
+```
+
+### Otros Comandos Útiles
+
+```bash
+# Ejecutar múltiples llamadas
+sncast multicall --help
+
+# Verificar un contrato
+sncast verify --help
 ```
 
 ## 🔍 Exploradores de Bloques
