@@ -1,0 +1,17 @@
+[package]
+name = "hash_functions"
+version = "0.1.0"
+
+[dependencies]
+starknet = ">=2.4.0"
+cairo_execute = "2.11.4"
+
+[lib]
+cairo-type = "lib"
+
+[[target.executable]]
+name = "busqueda_poseidon"
+source = "src/ejemplo_busqueda.cairo"
+
+[cairo]
+enable-gas = false 
