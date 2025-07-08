@@ -145,7 +145,7 @@ Puedes consultar el contrato y hacer queries desde el explorador de Starkscan:
 
 ### Ejemplo de consulta en Starkscan
 
-![Starkscan Query](../images/starkscan_query.png)
+![image](https://github.com/user-attachments/assets/58fde905-6c77-401f-b445-297c5a45b3b4)
 
 ---
 
@@ -153,11 +153,12 @@ Puedes consultar el contrato y hacer queries desde el explorador de Starkscan:
 
 ### Precio en el explorador (Starkscan):
 
-![Starkscan Precios](../images/starkscan_prices.png)
+![image](https://github.com/user-attachments/assets/fce4d1ac-a9e2-4065-8f28-2b7db2a1afd4)
 
 ### Precio de mercado (Coinmarketcap, Binance, etc):
 
-![Precio Mercado](../images/market_prices.png)
+![image](https://github.com/user-attachments/assets/5ca98ad1-cc14-4b65-bfa1-b5430df27f53)
+
 
 ---
 
